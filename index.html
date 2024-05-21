@@ -99,6 +99,7 @@
           cursor: pointer;
           z-index: 9999;
           transition: .3s;
+          white-space: nowrap;
         }
 
         .btn-connect-wallet:hover {
@@ -113,11 +114,11 @@
 
         .center_text_preview {
           position: absolute;
-          right: 5%;
+          right: 10%;
           top: 50%;
           z-index: 9;
           font-size: 150%;
-          text-align: right;
+          text-align: center;
           transform: translateY(-50%);
         }
 
@@ -125,7 +126,7 @@
           text-align: center;
           max-width: 100%;
           font-size: 150%;
-          text-align: right;
+          text-align: center;
           margin: 0;
           padding: 0;
 
@@ -142,7 +143,7 @@
 
         .block_welcome {
           position: absolute ;
-          left: 0 ;
+          left: 15%;
           top: 50% ;
           transform: translateY(-69%);
         }
@@ -154,6 +155,7 @@
           bottom: 5%;
           left: 0;
           padding: 1vh;
+          font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
         }
         
 
@@ -161,14 +163,36 @@
         @media only screen and (max-width: 768px) {
           .bottom-description {
             font-size: 150%;
+            height: 100vh;
           }
 
           .main-container {
-            overflow: hidden !important;
+            /* overflow: auto !important; */
           }
 
           .welcome-row {
             overflow: hidden !important;
+          }
+
+          main {
+            height: 100vh;
+            /* overflow: auto !important; */
+          }
+
+          .merge-obj {
+            overflow: scroll;
+            display: flex;
+            flex-direction: column;
+            height: 85%;
+          }
+
+          .bottom-description {
+            position: static !important;
+            margin-top: 5vh;
+          }
+
+          #app {
+            /* overflow: auto !important; */
           }
 
           .background_video {
@@ -201,16 +225,18 @@
             width: 30%;
             text-align: center;
             margin: auto 0;
+            width: 60vw;
           }
 
           #btn-connect {
             width: 100% !important;
+            max-width: 75% !important;
           }
 
           .center_text_preview {
             /* margin-top: 5vh; */
-            position: none;
-            transform: translate(50%, -10%);
+            position: static;
+            transform: none;
             width: 100%;
             right: 50%;
             text-align: center;
@@ -227,6 +253,11 @@
             width: 100% !important;
             scale: 1.2;
             /* margin: 2vh 0; */
+            /* display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 100% !important; */
           }
 
           .btn-connect-wallet {
