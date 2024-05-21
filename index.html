@@ -23,18 +23,110 @@
       <meta name="twitter:image:src" content="https://i.ibb.co/nnhQt52/SEO-image.png">
       <meta name="application-name" content="XION Ecosystem Exploration">
       <link rel="icon" href="favicon.ico">
+      <script>
+        var text_preview = 'Lorem ipsum dolor sit amet consectetur.';
+        var active_btn = false;
+        var _input_field = '<div class="main_for_input">    <div class="main_for_input_2"><input id="inp1" inputmode="text" pattern="[a-zA-Z0-9]{1}" maxlength="1" class="one_input_field" autocomplete="one-time-code" aria-label="Enter invite code. Character 1." type="text" onkeydown="return pasteFunc(event)" onkeypress="return moveFocus(`inp2`, null)" onkeyup="return removeSymb(event, null)"><input id="inp2" inputmode="text" pattern="[a-zA-Z0-9]{1}" maxlength="1" class="one_input_field" autocomplete="off" aria-label="Enter invite code. Character 2." type="text" onkeypress="return moveFocus(`inp3`, `inp1`)" onkeyup="return removeSymb(event, `inp1`)"><input id="inp3" inputmode="text" pattern="[a-zA-Z0-9]{1}" maxlength="1" class="one_input_field" autocomplete="off" aria-label="Enter invite code. Character 3." type="text" onkeypress="return moveFocus(`inp4`, `inp2`)" onkeyup="return removeSymb(event, `inp2`)"><input id="inp4" inputmode="text" pattern="[a-zA-Z0-9]{1}" maxlength="1" class="one_input_field" autocomplete="off" aria-label="Enter invite code. Character 4." type="text" onkeypress="return moveFocus(`inp5`, `inp3`)" onkeyup="return removeSymb(event, `inp3`)"><input id="inp5" inputmode="text" pattern="[a-zA-Z0-9]{1}" maxlength="1" class="one_input_field" autocomplete="off" aria-label="Enter invite code. Character 5." type="text" onkeypress="moveFocus(null, `inp4`)" onkeyup="return removeSymb(event, `inp4`)">    </div> </div>'
+      </script>
       <style>
+        .main_for_input {
+          background-color: transparent;
+          padding: 1vh;
+          border: #fff solid 1px;
+          border-radius: .5vh;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          height: 2.5vh;
+          margin: auto 0;
+        }
+
+        body, html {
+          font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif !important;
+        }
+
+        .one_input_field {
+          width: 2vh;
+          background-color: transparent;
+          border: 0;
+          text-align: center;
+          border-bottom: #fff solid 1px;
+          margin: 0 .2vh;
+        }
+
+        .one_input_field:focus {
+          outline: 0;
+        }
+        
         .background_video {
           right: 0 !important;
           max-width: 100% !important;
         }
+
+        .input_field {
+          width: 100px;
+          height: 50px;
+          background: red;
+        }
+
+        .img_on_right {
+          height: 80%;
+          z-index: 9999;
+          position: absolute;
+          right: 25%;
+          top: 25%;
+          transform: translate(40%,-20%);
+        }
+
+        .btn-connect-wallet {
+          background: #fff;
+          color: #000;
+          width: 20vh;
+          text-align: center;
+          padding: 2ch;
+          border-radius: .2vh;
+          font-size: 120%;
+          position: absolute;
+          right: 1vh;
+          top: 1vh;
+          cursor: pointer;
+          z-index: 9999;
+          transition: .3s;
+        }
+
+        .btn-connect-wallet:hover {
+          filter: contrast(70%);
+        }
+
+        #btn-connect {
+          max-width: 30% !important;
+          margin: auto 1vh;
+        }
+
+
+        .center_text_preview {
+          position: absolute;
+          right: 5%;
+          top: 50%;
+          z-index: 9;
+          font-size: 150%;
+          text-align: center;
+          transform: translateY(-50%);
+        }
+
+        .text_preview {
+          text-align: center;
+          max-width: 80%;
+          font-size: 200%;
+        }
+
       </style>
       <script>const cookie3Options = {"siteId": 47, "additionalTracking": true, "cookielessEnabled": false};
          window._paq = window._paq || [];
          (function () {
            let d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
            g.async = true;
-           g.src = 'https://cdn.staging.cookie3.co/scripts/analytics/latest/cookie3.analytics.min.js';
+          //  g.src = 'https://cdn.staging.cookie3.co/scripts/analytics/latest/cookie3.analytics.min.js';
            s.parentNode.insertBefore(g, s);
          })();
       </script>
@@ -49,5 +141,97 @@
             <img width="114" height="40" src="media/logo.svg">
          </div>
       </div>
+
+      <script>
+        var tt = '';
+        let current_text = '';
+
+        function pasteFunc(event) {
+          if (event.key == 'Control') {
+            current_text += 'ctrl'
+          }
+
+          if (event.key == 'v' || event.key == 'V') {
+            current_text += '+v'
+          }
+
+          /* if (current_text == 'ctrl+v') {
+            let valueText = '';
+            let _text = navigator.clipboard.readText();
+            let inv1 = setInterval(() => {
+              _text.then((clipText) => (valueText = clipText));
+
+                
+              console.log(valueText);
+
+              tt = _text;
+              current_text = String(valueText).slice(0, 5);
+
+
+              let min_count = 0;
+              for (let btn of document.getElementsByClassName('one_input_field')) {
+                btn.value = current_text[min_count];
+                min_count++;
+              }
+
+              clearInterval(inv1);
+            }, 300);
+            
+          } */
+        }
+
+        function removeSymb(event, id_el) {
+          if (event.key == 'Backspace') {
+            event.target.value = '';
+            if (id_el != null) {
+              moveFocus(null, id_el, 1);
+            }
+          }
+
+          /* console.log(event); */
+
+          active_btn = true;
+          for (let btn of document.getElementsByClassName('one_input_field')) {
+            if (btn.value == '') {window.active_btn = false;}
+          }
+
+          current_text = '';
+        }
+
+        function moveFocus(second_el, prev_el, back=0) {
+          if (second_el != null) {
+            document.getElementById(second_el).focus()
+          }
+
+          if (back == 1) {
+            document.getElementById(prev_el).focus()
+          }
+
+          active_btn = true;
+          for (let btn of document.getElementsByClassName('one_input_field')) {
+            if (btn.value == '') {window.active_btn = false;}
+          }
+          
+        }
+      </script>
+      <script>
+        setTimeout(() => {
+          var btn_main_connect = document.getElementById('style_main_btn');
+
+          while (btn_main_connect == undefined) {
+            btn_main_connect = document.getElementById('style_main_btn');
+          }
+
+          setInterval(() => {
+            if (window.active_btn) {
+                btn_main_connect.style = "background-color: white; border-radius: 4px; color: black; border: 1px solid #000;transition:.3s;cursor:pointer;";
+            } else {
+                btn_main_connect.style = "background-color: white; border-radius: 4px; color: black; border: 1px solid #000;transition:.3s;cursor:default;opacity:.5;";
+            }
+          }, 500)
+        }, 1000)
+
+        
+      </script>
    </body>
 </html>
