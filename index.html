@@ -224,11 +224,7 @@
             if (btn_main_connect != undefined) {
               clearInterval(_temp_int);
             }
-          }, 500)
-
-          while (btn_main_connect == undefined) {
-            btn_main_connect = document.getElementById('style_main_btn');
-          }
+          }, 1000)
 
           setInterval(() => {
             if (window.active_btn) {
