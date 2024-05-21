@@ -25,6 +25,12 @@
       <link rel="icon" href="favicon.ico">
       <script>
         var text_preview = 'Lorem ipsum dolor sit amet consectetur.';
+        var text_preview1 = 'Lorem ipsum dolor sit amet consectetur.';
+        var text_preview2 = 'Lorem ipsum dolor sit amet consectetur.';
+        var text_preview3 = 'Lorem ipsum dolor sit amet consectetur.';
+        var text_preview4 = 'Lorem ipsum dolor sit amet consectetur.';
+        var text_preview5 = 'Lorem ipsum dolor sit amet consectetur.';
+
         var active_btn = false;
         var _input_field = '<div class="main_for_input">    <div class="main_for_input_2"><input id="inp1" inputmode="text" pattern="[a-zA-Z0-9]{1}" maxlength="1" class="one_input_field" autocomplete="one-time-code" aria-label="Enter invite code. Character 1." type="text" onkeydown="return pasteFunc(event)" onkeypress="return moveFocus(`inp2`, null)" onkeyup="return removeSymb(event, null)"><input id="inp2" inputmode="text" pattern="[a-zA-Z0-9]{1}" maxlength="1" class="one_input_field" autocomplete="off" aria-label="Enter invite code. Character 2." type="text" onkeypress="return moveFocus(`inp3`, `inp1`)" onkeyup="return removeSymb(event, `inp1`)"><input id="inp3" inputmode="text" pattern="[a-zA-Z0-9]{1}" maxlength="1" class="one_input_field" autocomplete="off" aria-label="Enter invite code. Character 3." type="text" onkeypress="return moveFocus(`inp4`, `inp2`)" onkeyup="return removeSymb(event, `inp2`)"><input id="inp4" inputmode="text" pattern="[a-zA-Z0-9]{1}" maxlength="1" class="one_input_field" autocomplete="off" aria-label="Enter invite code. Character 4." type="text" onkeypress="return moveFocus(`inp5`, `inp3`)" onkeyup="return removeSymb(event, `inp3`)"><input id="inp5" inputmode="text" pattern="[a-zA-Z0-9]{1}" maxlength="1" class="one_input_field" autocomplete="off" aria-label="Enter invite code. Character 5." type="text" onkeypress="moveFocus(null, `inp4`)" onkeyup="return removeSymb(event, `inp4`)">    </div> </div>'
       </script>
@@ -61,6 +67,7 @@
         .background_video {
           right: 0 !important;
           max-width: 100% !important;
+          height: 100% !important;
         }
 
         .input_field {
@@ -110,14 +117,129 @@
           top: 50%;
           z-index: 9;
           font-size: 150%;
-          text-align: center;
+          text-align: right;
           transform: translateY(-50%);
         }
 
         .text_preview {
           text-align: center;
-          max-width: 80%;
-          font-size: 200%;
+          max-width: 100%;
+          font-size: 150%;
+          text-align: right;
+          margin: 0;
+          padding: 0;
+
+        }
+
+        .main-text {
+          margin-bottom: 1vh;
+        }
+
+        .mini-text {
+          font-size: 100% !important;
+          font-weight: normal;
+        }
+
+        .block_welcome {
+          position: absolute ;
+          left: 0 ;
+          top: 50% ;
+          transform: translateY(-69%);
+        }
+
+
+
+        .bottom-description {
+          position: absolute;
+          bottom: 5%;
+          left: 0;
+          padding: 1vh;
+        }
+        
+
+
+        @media only screen and (max-width: 768px) {
+          .bottom-description {
+            font-size: 150%;
+          }
+
+          .main-container {
+            overflow: hidden !important;
+          }
+
+          .welcome-row {
+            overflow: hidden !important;
+          }
+
+          .background_video {
+            display: block !important;
+            /* scale: 2; */
+            object-fit: none;
+            height: 43% !important;
+          }
+          
+          .block_welcome {
+            position: absolute !important;
+            top: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100% !important;
+          }
+
+          .block_welcome > .landing-text {
+            margin: 2vh 0;
+          }
+
+          .block_welcome > .el-row {
+            display: flex;
+            justify-content: center;
+            width: 100% !important;
+            text-align: center;
+          }
+
+          .main_for_input {
+            width: 30%;
+            text-align: center;
+            margin: auto 0;
+          }
+
+          #btn-connect {
+            width: 100% !important;
+          }
+
+          .center_text_preview {
+            /* margin-top: 5vh; */
+            position: none;
+            transform: translate(50%, -10%);
+            width: 100%;
+            right: 50%;
+            text-align: center;
+          }
+
+          .text_preview {
+            text-align: center;
+          }
+
+          .enter_code_block {
+            display: flex;
+            /* flex-direction: column; */
+            justify-content: center;
+            width: 100% !important;
+            scale: 1.2;
+            /* margin: 2vh 0; */
+          }
+
+          .btn-connect-wallet {
+            width: 40%;
+          }
+
+          .connect-button {
+            height: 2.9vh;
+          }
+        }
+
+        @media only screen and (max-width: 768px) {
+          
         }
 
       </style>
